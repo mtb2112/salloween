@@ -35,11 +35,19 @@ function initializeClock(id, endtime) {
 
     if (timeRemaining.total <= 0) {
       clearInterval(timeinterval)
+      removeCountdown()
     }
   }
 
   updateClock()
   timeinterval = setInterval(updateClock, 1000)
+}
+
+function removeCountdown() {
+  var countdownElement = document.getElementById('clockdiv')
+
+  countdownElement.parentNode.removeChild(countdownElement)
+  return false
 }
 
 document.addEventListener('DOMContentLoaded', function() {
